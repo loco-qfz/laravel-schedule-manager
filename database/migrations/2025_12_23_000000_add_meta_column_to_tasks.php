@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Studio\Totem\Database\TotemMigration;
 
-class AlterTaskResultsTableAddIndexOnCreatedAt extends TotemMigration
+return new class extends TotemMigration
 {
     /**
      * Run the migrations.
@@ -31,4 +31,4 @@ class AlterTaskResultsTableAddIndexOnCreatedAt extends TotemMigration
                 $table->dropColumn('meta');
             });
     }
-}
+};

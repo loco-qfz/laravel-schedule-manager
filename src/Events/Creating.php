@@ -34,6 +34,11 @@ class Creating implements ShouldBroadcast
      */
     public function broadcastOn(): PrivateChannel
     {
-        return new PrivateChannel('channel-name');
+        return new PrivateChannel(config('totem.broadcasting.channel'));
+    }
+
+    public function broadcastWhen(): bool
+    {
+        return config('totem.broadcasting.enabled');
     }
 }

@@ -31,6 +31,7 @@ class TaskRequest extends FormRequest
             'notification_email_address' => 'nullable|email',
             'notification_phone_number' => 'nullable|digits_between:11,13',
             'notification_slack_webhook' => 'nullable|url',
+            'overlap_expires_at' => 'nullable|numeric|min:1'
         ];
     }
 
@@ -51,6 +52,8 @@ class TaskRequest extends FormRequest
             'notification_email_address.email' => 'Email address is not valid',
             'notification_phone_number.digits_between' => 'Phone number should be between 11 and 13 digits including country code',
             'notification_slack_webhook.url' => 'Slack Webhook must be a valid url',
+            'overlap_expires_at.numeric' => 'Overlap expires at must be a number',
+            'overlap_expires_at.min' => 'Overlap expires at must be at least 1 minute',
         ];
     }
 

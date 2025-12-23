@@ -80,6 +80,7 @@ class TasksController extends Controller
      */
     public function store(TaskRequest $request): RedirectResponse
     {
+        $request->merge(['meta' => ['overlap_expires_at' => $request->overlap_expires_at]]);
         $this->tasks->store($request->all());
 
         return redirect()
@@ -129,6 +130,8 @@ class TasksController extends Controller
      */
     public function update(TaskRequest $request, Task $task): RedirectResponse
     {
+        $request->merge(['meta' => ['overlap_expires_at' => $request->overlap_expires_at]]);
+
         $task = $this->tasks->update($request->all(), $task);
 
         return redirect()->route('totem.task.view', ['totemTask' => $task])
