@@ -7,31 +7,28 @@ use Studio\Totem\Tests\TestCase;
 
 class EditTaskTest extends TestCase
 {
-    /** @test */
-    public function user_can_view_edit_task_form()
+    public function test_user_can_view_edit_task_form()
     {
         $this->disableExceptionHandling()->signIn();
         $task = Task::factory()->create();
-        $response = $this->get(route('totem.task.edit', $task));
+        $response = $this->get(route('totem.task.edit', ['totemTask' => $task]));
         $response->assertStatus(200);
         $response->assertSee($task->description);
         $response->assertSee($task->expression);
     }
 
-    /** @test */
-    public function guest_can_not_view_edit_task_form()
+    public function test_guest_can_not_view_edit_task_form()
     {
         $task = Task::factory()->create();
-        $response = $this->get(route('totem.task.edit', $task));
+        $response = $this->get(route('totem.task.edit', ['totemTask' => $task]));
         $response->assertStatus(403);
     }
 
-    /** @test */
-    public function user_can_edit_task()
+    public function test_user_can_edit_task()
     {
         $this->disableExceptionHandling()->signIn();
         $task = Task::factory()->create();
-        $response = $this->post(route('totem.task.edit', $task), [
+        $response = $this->post(route('totem.task.edit', ['totemTask' => $task]), [
             'description' => 'List All Scheduled Commands',
             'command' => 'Studio\Totem\Console\Commands\ListSchedule',
             'type' => 'cron',
@@ -39,6 +36,6 @@ class EditTaskTest extends TestCase
         ]);
 
         $response->assertSessionHas('task');
-        $response->assertRedirect(route('totem.task.view', $task));
+        $response->assertRedirect(route('totem.task.view', ['totemTask' => $task]));
     }
 }
