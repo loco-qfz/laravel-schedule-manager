@@ -39,7 +39,15 @@ class Task extends TotemModel
         'auto_cleanup_num',
         'run_on_one_server',
         'run_in_background',
+        'meta',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'meta' => 'json',
+        ];
+    }
 
     /**
      * The accessors to append to the model's array form.
