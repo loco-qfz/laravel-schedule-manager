@@ -199,6 +199,10 @@
                 <input type="checkbox" name="dont_overlap" id="dont_overlap" value="1" {{old('dont_overlap', $task->dont_overlap) ? 'checked' : ''}}>
                 Don't Overlap
             </label>
+            <label class="uk-margin">
+                Overlap mutex expires minutes
+                <input class="uk-input" type="number" name="overlap_expires_at" id="overlap_expires_at" value="{{ old('overlap_expires_at', $task->meta['overlap_expires_at'] ?? 1440) }}" />
+            </label>
 
             <div class="uk-margin">
                 <label class="uk-margin">
