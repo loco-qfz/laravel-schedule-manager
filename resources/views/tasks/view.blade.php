@@ -63,7 +63,7 @@
         </li>
         @if($task->dont_overlap)
             <li>
-                <span class="uk-float-left">Doesn't Overlap with another instance of this task</span>
+                <span class="uk-float-left">Doesn't Overlap with another instance of this task (mutex expires in {{$task->meta['overlap_expires_at'] ?? 1440}} minutes)</span>
             </li>
         @endif
         @if($task->run_in_maintenance)

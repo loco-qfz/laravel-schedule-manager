@@ -40,14 +40,15 @@ class ConsoleServiceProvider extends ServiceProvider
                 ->name($task->description)
                 ->timezone($task->timezone)
                 ->before(function () use ($task, $event) {
-                    $event->start = microtime(true);
+                    $task->last_start_at = microtime(true);
                     Executing::dispatch($task);
                 })
                 ->thenWithOutput(function ($output) use ($event, $task) {
-                    Executed::dispatch($task, $event->start ?? microtime(true), $output);
+                    Executed::dispatch($task, $task->last_start_at ?? microtime(true), $output);
+                    unset($task->last_start_at);
                 });
             if ($task->dont_overlap) {
-                $event->withoutOverlapping();
+                $event->withoutOverlapping($task->meta['overlap_expires_at'] ?? 1440);
             }
             if ($task->run_in_maintenance) {
                 $event->evenInMaintenanceMode();
