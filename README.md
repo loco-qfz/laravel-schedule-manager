@@ -1,14 +1,4 @@
-<p align="center">
-  <img src="https://github.com/codestudiohq/laravel-totem/blob/8.0/resources/assets/img/totem.png?raw=true" alt="Laravel Totem"/>
-</p>
-<p align="center">
-<img src="https://github.com/codestudiohq/laravel-totem/workflows/Laravel/badge.svg?branch=8.0" alt="Build Status">
-<a href="https://packagist.org/packages/studio/laravel-totem"><img src="https://poser.pugx.org/studio/laravel-totem/license.svg" alt="License"></a>
-</p>
-
 # Introduction
-
-[![Join the chat at https://gitter.im/laravel-totem/Lobby](https://badges.gitter.im/laravel-totem/Lobby.svg)](https://gitter.im/laravel-totem/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel Console Commands` to your liking. Enable/Disable scheduled tasks on the fly without going back to your code again.
 
@@ -27,7 +17,7 @@ Manage your `Laravel Schedule` from a pretty dashboard. Schedule your `Laravel C
 `Totem` requires Laravel v10 and above, please refer to the above table for compatability. Use composer to install totem to your Laravel project
 
 ```
-composer require studio/laravel-totem
+composer require terragon/laravel-schedule-manager
 ```
 
 > Laravel Totem supports auto package discovery for Laravel v5.5+, therefore service provider registration is not required in Laravel v5.5+
@@ -68,7 +58,7 @@ php artisan totem:assets
 
 ##### Cron Job
 
-This package assumes that you have a good understanding of [Laravel's Task Scheduling](https://laravel.com/docs/5.4/scheduling) and [Laravel Console Commands](https://laravel.com/docs/5.4/artisan#writing-commands). Before any of this works please make sure you have a cron running as follows:
+This package assumes that you have a good understanding of [Laravel's Task Scheduling](https://laravel.com/docs/11.x/scheduling) and [Laravel Console Commands](https://laravel.com/docs/11/x/artisan#writing-commands). Before any of this works please make sure you have a cron running as follows:
 
 ```
 * * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1
@@ -155,32 +145,12 @@ In addition to the dashboard, Totem provides an artisan command to view a list o
 php artisan schedule:list
 ```
 
-### Screenshots
-
-##### Task List
-
-<img src="https://github.com/codestudiohq/laravel-totem/blob/1.0/public/img/screenshots/tasks.png?raw=true" alt="Task List"/>
-
-##### Task Details
-
-<img src="https://github.com/codestudiohq/laravel-totem/blob/1.0/public/img/screenshots/task-details.png?raw=true" alt="Task List"/>
-
-##### Edit Task
-
-<img src="https://github.com/codestudiohq/laravel-totem/blob/1.0/public/img/screenshots/edit-task.png?raw=true" alt="Task List"/>
-
-##### Artisan Command to view scheduled tasks
-
-<img src="https://github.com/codestudiohq/laravel-totem/blob/1.0/public/img/screenshots/artisan.png?raw=true" alt="Task List"/>
-
 ## Changelog
 
 Important versions listed below. Refer to the [Changelog](CHANGELOG.md) for a full history of the project.
 
 ## Credits
-
-- [Roshan Gautam](https://twitter.com/@roshangautam)
-- [OSS Contributors](https://github.com/codestudiohq/laravel-totem/graphs/contributors)
+- [Laravel Totem](https://github.com/always-open/laravel-totem)
 
 Bug reports, feature requests, and pull requests can be submitted by following our [Contribution Guide](CONTRIBUTING.md).
 
